@@ -1,13 +1,17 @@
 import {
     LIST_RICKMORTY,
     LIST_RICKMORTY_SUCCESS,
-    LIST_RICKMORTY_ERROR
+    LIST_RICKMORTY_ERROR,
+    LIST_RICKMORTY_ID,
+    LIST_RICKMORTY_ID_SUCCESS,
+    LIST_RICKMORTY_ID_ERROR
 } from "./actionsType"
 
 const initialState = {
     personagens: [],
     resp: "",
-    error:""
+    error:"",
+    personagemId:[]
 }
 
 const Rickmorty = (state = initialState,action) => {
@@ -23,7 +27,7 @@ const Rickmorty = (state = initialState,action) => {
             state={
                 ...state,
                 resp: action.payload,
-                personagens:action.payload
+                personagens:action.payload,
             }
         break
 
@@ -33,6 +37,24 @@ const Rickmorty = (state = initialState,action) => {
                 error: action.payload
             }
         break
+        case LIST_RICKMORTY_ID:
+            state={
+                ...state,
+                personagemId:[]
+            }
+        break
+        case LIST_RICKMORTY_ID_SUCCESS:
+            state={
+                ...state,
+                resp: action.payload,
+                personagemId:action.payload
+            }
+        break
+        case LIST_RICKMORTY_ID_ERROR:
+            state={
+                ...state,
+                error: action.payload
+            }
 
         // case LIST_RICKMORTY_UPDATE:
         //     state ={
